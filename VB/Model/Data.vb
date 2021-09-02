@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.Linq
 Imports RichEditBinding.ViewModel
@@ -15,19 +14,22 @@ Namespace RichEditBinding.Model
 
 	Public Class Data
 		Implements INotifyPropertyChanged
+
 		Public Sub New()
 		End Sub
 
-		Private description_Renamed As String = String.Empty
-		Private formatType_Renamed As FormatType = FormatType.Undefined
+'INSTANT VB NOTE: The field description was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private description_Conflict As String = String.Empty
+'INSTANT VB NOTE: The field formatType was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private formatType_Conflict As FormatType = FormatType.Undefined
 
 		Public Property Description() As String
 			Get
-				Return description_Renamed
+				Return description_Conflict
 			End Get
 			Set(ByVal value As String)
-				If value <> Me.description_Renamed Then
-					Me.description_Renamed = value
+				If value <> Me.description_Conflict Then
+					Me.description_Conflict = value
 					NotifyPropertyChanged("Description")
 				End If
 			End Set
@@ -35,17 +37,17 @@ Namespace RichEditBinding.Model
 
 		Public Property FormatType() As FormatType
 			Get
-				Return formatType_Renamed
+				Return formatType_Conflict
 			End Get
 			Set(ByVal value As FormatType)
-				If value <> Me.formatType_Renamed Then
-					Me.formatType_Renamed = value
+				If value <> Me.formatType_Conflict Then
+					Me.formatType_Conflict = value
 					NotifyPropertyChanged("FormatType")
 				End If
 			End Set
 		End Property
 
-		Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
+		Public Event PropertyChanged As PropertyChangedEventHandler
 
 		Private Sub NotifyPropertyChanged(ByVal info As String)
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(info))

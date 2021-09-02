@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.Configuration
 Imports System.Data
@@ -12,5 +11,6 @@ Namespace Q399303
 	''' </summary>
 	Partial Public Class App
 		Inherits Application
+
 	End Class
 End Namespace
